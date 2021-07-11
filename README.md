@@ -29,3 +29,16 @@ Discordに送信
 ```
 Logger::sendToDiscord("メッセージ", "webhookのURL", $async, "ユーザー名");
 ```
+
+## 使い方3(ファイルに記録)
+メッセージをファイルに記録することができます
+
+クラスを使う
+```
+use Lyrica0954\Logger\Log;
+```
+
+ファイルに記録する(includePPath はプラグインのフォルダーパスをフルパスの前に挿入するか)
+```
+$log = new Log("内容", "日付のフォーマット", "内容のフォーマット");
+$log->writeToFile("フルパス", $includePPath);
