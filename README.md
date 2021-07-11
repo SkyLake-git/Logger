@@ -9,11 +9,11 @@
 use Lyrica0954\Logger\Logger;
 ```
 
-Discordに送信(contentはメッセージ, webhookUrlはwebhookのURL, async は非同期, textFormatはメッセージのフォーマット, dateFormatは日付のフォーマット)
+Discordに送信(contentはメッセージ, webhookUrlはwebhookのURL, async は非同期, textFormatはメッセージのフォーマット, dateFormatは日付のフォーマット, usernameはユーザー名)
 ```
-public function discordLog($content, $webhookUrl, $async = true, $textformat = "[%s] %s", $dateformat = "Y/m/d H:i:s"){
+public function discordLog($content, $webhookUrl, $async = true, $textformat = "[%s] %s", $dateformat = "Y/m/d H:i:s", $username = "test"){
     $log = Logger::createLog($content, $dateformat, $textFormat);
-    $log->sendToDiscord($webhookUrl, $async);
+    $log->sendToDiscord($webhookUrl, $async, $username);
 }
 ```
 
