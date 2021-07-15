@@ -1,0 +1,6 @@
+---
+name: Logger
+version: 0.0.1
+main: Lyrica0954\Logger\Logger
+api: 3.21.1
+...
