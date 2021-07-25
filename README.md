@@ -2,7 +2,7 @@
 メッセージをファイルに記録したりDiscordに送信したりできます。
 
 
-## 使い方(Discord)
+## 使い方1(Discord)
 
 クラスを使う
 ```
@@ -52,7 +52,7 @@ v1.3 からDiscordにEmbedなどを送信できるようになりました！！
 
 ***
 
-**使い方1**
+**使い方** 
 
 クラスを使います
 ```
@@ -71,9 +71,10 @@ Embedを作成
 $embed = new Embed("Embedの説明", "Embedのタイトル(なくてもok)", "送信者の名前(webhookのユーザー名ではない,なくてもok)", $color, array($field));
 ```
 
-送信
+送信 (このやり方でなくても一番上の使い方1の方法で送信することもできます)
 ```
 $webhook = new Webhook("メッセージ内容(Embedがあるなら空白でもok)", "webhookのurl", "ユーザー名", array($embed));
+$webhook->sendWebhook($async);
 ```
 
 コメント  
