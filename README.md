@@ -9,11 +9,11 @@
 use Lyrica0954\Logger\Logger;
 ```
 
-Discordに送信(contentはメッセージ, webhookUrlはwebhookのURL, async は非同期, textFormatはメッセージのフォーマット, dateFormatは日付のフォーマット, usernameはユーザー名)
+Discordに送信(contentはメッセージ, webhookUrlはwebhookのURL, async は非同期, textFormatはメッセージのフォーマット, dateFormatは日付のフォーマット, usernameはユーザー名, embeds はembedメッセージのarray)
 ```
-public function discordLog($content, $webhookUrl, $async = true, $textformat = "[%s] %s", $dateformat = "Y/m/d H:i:s", $username = "test"){
+public function discordLog($content, $webhookUrl, $async = true, $textformat = "[%s] %s", $dateformat = "Y/m/d H:i:s", $username = "test", $embeds = array()){
     $log = Logger::createLog($content, $dateformat, $textFormat);
-    $log->sendToDiscord($webhookUrl, $async, $username);
+    $log->sendToDiscord($webhookUrl, $async, $username, $embeds);
 }
 ```
 
@@ -27,8 +27,10 @@ use Lyrica0954\Logger\Logger;
 
 Discordに送信
 ```
-Logger::sendToDiscord("メッセージ", "webhookのURL", $async, "ユーザー名");
+Logger::sendToDiscord("メッセージ", "webhookのURL", $async, "ユーザー名", $embeds);
 ```
+
+
 
 ## 使い方3(ファイルに記録)
 メッセージをファイルに記録することができます
@@ -42,3 +44,39 @@ use Lyrica0954\Logger\Log;
 ```
 $log = new Log("内容", "日付のフォーマット", "内容のフォーマット");
 $log->writeToFile("フルパス", $includePPath);
+```
+
+
+## 新機能: Embed, EmbedField
+v1.3 からDiscordにEmbedなどを送信できるようになりました！！
+
+***
+
+**使い方1**
+
+クラスを使います
+```
+use Lyrica0954\Logger\webhook\Webhook;
+use Lyrica0954\Logger\discord\Embed;
+use Lyrica0954\Logger\discord\EmbedField;
+```
+
+Fieldを作成(なくてもok)
+```
+$field = new EmbedField("Fieldの名前", "Fieldの値");
+```
+
+Embedを作成
+```
+$embed = new Embed("Embedの説明", "Embedのタイトル(なくてもok)", "送信者の名前(webhookのユーザー名ではない,なくてもok)", $color, array($field));
+```
+
+送信
+```
+$webhook = new Webhook("メッセージ内容(Embedがあるなら空白でもok)", "webhookのurl", "ユーザー名", array($embed));
+```
+
+コメント  
+ちなみに、  
+`array($embed, $embed2... )`  
+という風にすることでembedを複数送ることができます。(fieldも同様)
