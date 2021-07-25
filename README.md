@@ -1,6 +1,8 @@
 # Logger
 メッセージをファイルに記録したりDiscordに送信したりできます。
 
+ダウンロード: [Donwload]()
+
 
 ## 使い方1(Discord)
 
