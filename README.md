@@ -14,7 +14,7 @@ use Lyrica0954\Logger\Logger;
 Discordに送信(contentはメッセージ, webhookUrlはwebhookのURL, async は非同期, textFormatはメッセージのフォーマット, dateFormatは日付のフォーマット, usernameはユーザー名, embeds はembedメッセージのarray)
 ```
 public function discordLog($content, $webhookUrl, $async = true, $textformat = "[%s] %s", $dateformat = "Y/m/d H:i:s", $username = "test", $embeds = array()){
-    $log = Logger::createLog($content, $dateformat, $textFormat);
+    $log = Logger::createLog($content, $dateformat, $textformat);
     $log->sendToDiscord($webhookUrl, $async, $username, $embeds);
 }
 ```
