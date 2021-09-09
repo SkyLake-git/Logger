@@ -1,7 +1,7 @@
 # Logger
 メッセージをファイルに記録したりDiscordに送信したりできます。
 
-ダウンロード: [Download](https://github.com/SkyLake-git/Logger/releases/tag/1.3)
+ダウンロード: [Download](https://github.com/SkyLake-git/Logger/releases/latest)
 
 
 ## 使い方1(Discord)
